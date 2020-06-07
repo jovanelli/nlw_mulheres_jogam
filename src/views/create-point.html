@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% set pageId = "page-create-point" %}
+
+{% block title %}
+    <title>Cadastrar seu time</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/create-point.css">
+
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+
+    <form action="">
+        <h1>Cadastro do time</h1>
+
+        <fieldset>
+            <legend>
+                <h2>Dados do time</h2>
+            </legend>
+
+            <div class="field-group">
+            <div class="field">
+                <label for="name">Nome do time</label>
+                <input type="text" name="name" required="required">
+            </div><div class="field">
+                <label for="name">Imagem ou logo do time</label>
+                <input 
+                type="url" 
+                name="image" 
+                placeholder="http://"
+                required="required">
+            </div>
+            </div>
+
+            
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="adress">Endereço</label>
+                    <input type="text" name="adress" required="required">
+                </div>
+                <div class="field">
+                    <label for="adress2">Número/Complemento</label>
+                    <input type="text" name="address2" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="state">Estado</label>
+                    <select name="uf" required="required">
+                        <option value="">Selecione o Estado</option>
+                    </select>
+
+                    <input type="hidden" name="state">
+                </div>
+                <div class="field">
+                    <label for="city">Cidade</label>
+                    <select name="city" disabled="disabled" required="required">
+                        <option value="">Selecione a Cidade</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="contact">Nome Responsável</label>
+                    <input type="text" name="contact" required="required">
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="text" name="email" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="facebook">Facebook do time</label>
+                    <input type="text" name="facebook">
+                </div>
+                <div class="field">
+                    <label for="instagram">Instagram do time</label>
+                    <input type="text" name="instagram">
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Características</h2>
+                <span>Selecione uma ou mais características abaixo</span>
+            </legend>
+
+            <div class="items-grid">
+                <li data-id="1">
+                    <img src="/assets/icones/lampadas.svg" alt="Técnico(a)">
+                    <span>Técnico(a)</span>
+                </li>
+
+                <li data-id="2">
+                    <img src="/assets/icones/baterias.svg" alt="Material Próprio">
+                    <span>Material Próprio</span>
+                </li>
+
+                <li data-id="3">
+                    <img src="/assets/icones/papeis-papelao.svg" alt="Mensalidade">
+                    <span>Mensalidade</span>
+                </li>
+
+                <li data-id="4">
+                    <img src="/assets/icones/eletronicos.svg" alt="Aceitando Atletas">
+                    <span>Aceitando Atletas</span>
+                </li>
+
+                <li data-id="5">
+                    <img src="/assets/icones/organicos.svg" alt="Disputa Campeonatos">
+                    <span>Participa de Campeonatos</span>
+                </li>
+
+                <li data-id="6">
+                    <img src="/assets/icones/oleo.svg" alt="Ensina iniciantes">
+                    <span>Ensina Iniciantes</span>
+                </li>
+            </div>
+
+            <input type="hidden" name="items">
+
+        </fieldset>
+
+        <button type="submit">Cadastrar time</button>
+    </form>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="/scripts/create-point.js"></script>
+{% endblock scripts %}
