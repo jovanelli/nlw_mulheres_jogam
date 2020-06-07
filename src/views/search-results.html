@@ -14,38 +14,41 @@
     {% include "partials/page-header.html" %}
 
     <main>
+
+    {% if total > 0 %}
+    
+
         <h4>
-            <strong>2 pontos</strong>
+            <strong>{{ total }} pontos</strong>
             encontrados
         </h4>
 
         <div class="cards">
+
+            {% for place in places %}
             <div class="card">
-                <img src="https://scontent.fcgh8-1.fna.fbcdn.net/v/t1.0-9/1525276_257188861128419_1319884487_n.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_eui2=AeEsfBwpLZFcTNeXwkpFXXEX9bvjG_NJi8b1u-Mb80mLxiRUQWtcjzY8yyqY9UgsXaGvetZHiFSQlt4ViAPGQmTa&_nc_ohc=cm5GfU2a5ssAX_zptWQ&_nc_ht=scontent.fcgh8-1.fna&oh=d9c1a9e033c19487b8f37639826400fd&oe=5EFFEAFD" alt="Hand Ibira">
-                <h1>Hand Ibira</h1>
-                <h3>Técnico(a), Material Próprio, Mensalidade, Aceitando Atletas, Disputa Campeonatos</h3>
+                <img src="{{ place.image }}" alt="{{ place.name }}">
+                <h1>{{ place.name }}</h1>
+                <h3>{{ place.items }}</h3>
                 <p>
-                    São Paulo, São Paulo
+                    {{ place.city }}, {{ place.state }}
                     <br/>
-                    Rua Pedro de Toledo, Moema
+                    {{ place.address }}
                     <br/>
-                    Nº 1651
+                    {{ place.address2 }}
+                    <br/>
+                    {{ place.contact }}, {{ place.email }}
+                    <br/>
+                    {{ place.facebook }}, {{ place.instagram }}
                 </p>
             </div>
 
-            <div class="card">
-                <img src="https://scontent.fcgh8-1.fna.fbcdn.net/v/t1.0-9/48364584_2196021750648014_1773589156992122880_o.jpg?_nc_cat=102&_nc_sid=09cbfe&_nc_eui2=AeGrav07qJPIviI_vT0ANk-EGI28RfxkNo8YjbxF_GQ2j7A5iAyrIR2PpETegVFq8EPCe0Ce4X4SA2Ji8LH5d-IZ&_nc_ohc=pxNkXDMtbfYAX-aLS1t&_nc_ht=scontent.fcgh8-1.fna&oh=24591e0c272c3ebb2c66de3deee54840&oe=5F02B158" alt="Vikings Handebol">
-                <h1>Vikings Handebol</h1>
-                <h3>Técnico(a), Material Próprio, Mensalidade, Aceitando Atletas, Disputa Campeonatos</h3>
-                <p>
-                    São Paulo, São Paulo
-                    <br/>
-                    R. Cornélio Zelaia, Jardim São Luis
-                    <br/>
-                    Nº sem número
-                </p>
-            </div>
+            {% endfor %}
         </div>
 
+    {%else%}
+    <h4><strong>Nenhum</strong> time cadastrado</h4>
+
+    {% endif %}
     </main>
 {% endblock content %}
